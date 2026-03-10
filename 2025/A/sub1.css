@@ -1,0 +1,226 @@
+/* 전체 요소의 기본 스타일 설정 */
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 링크 스타일 설정 */
+a {
+    text-decoration: none;
+    display: block;
+    color: #ECF0F1;
+}
+
+img {
+    object-fit: cover;
+}
+/* 리스트 스타일 제거 */
+li {
+    list-style: none;
+}
+
+/* 전체 페이지를 감싸는 래퍼 스타일 */
+#wrap {
+    width: 100%;
+    position: relative;
+}
+
+/* 헤더 스타일 */
+header {
+    width: 100%;
+    height: 100px;
+    background-color: #1C1C1C;
+    display: flex;
+    position: fixed;
+    z-index: 99;
+}
+
+/* 로고 영역 스타일 */
+.logo {
+    margin: 0;
+    width: 200px;
+    height: 100px;
+}
+
+/* 메뉴 영역 스타일 */
+.menu {
+    margin: 0;
+    width: 600px;
+    height: 100px;
+    line-height: 100px;
+}
+
+/* 메인 메뉴 스타일 */
+.main-menu {
+    margin: 0;
+    width: 600px;
+    height: 100px;
+    display: flex;
+    overflow: hidden;
+}
+
+/* 메인 메뉴에 마우스를 올리면 서브 메뉴가 나타나도록 설정 */
+.menu > .main-menu:hover {
+    height: 300px;
+    transition: 0.3s;
+}
+/* 서브 메뉴 배경 박스 */
+.sub-box {
+    position: absolute;
+    top: 100px;
+    position: fixed;
+    width: 100%;
+    height: 0px;
+    background-color: #ECF0F1;
+    z-index: 3;
+    box-shadow: 0px 0px 2px;
+}
+
+/* 메인 메뉴에 마우스를 올리면 서브 박스의 높이가 증가 */
+#wrap:has(.menu > .main-menu:hover) .sub-box {
+    height: 230px;
+    transition: 0.3s;
+}
+.sub-box:hover {
+    height: 230px;
+}
+#wrap:has(.sub-box:hover) .main-menu {
+    height: 300px;
+}
+/* 메뉴의 링크 스타일 */
+.menu a {
+    text-align: center;
+    width: 150px;
+    font-weight: bolder;
+}
+
+/* 메뉴 항목에 마우스를 올렸을 때 테두리 추가 */
+.main-menu a:hover {
+    background-color: #ECF0F1; 
+    color: #1C1C1C;
+}
+.main-menu li:hover a {
+    background-color: #ECF0F1;
+    color: #000;
+}
+nav .sub-menu a:hover{
+    outline: 2px solid #1C1C1C;
+    outline-offset: -2px;
+}
+
+/* 서브 메뉴 스타일 */
+.sub-menu {
+    width: 150px;
+    height: 200px;
+}
+
+/* 서브 메뉴 항목 스타일 */
+.sub-menu > li {
+    background-color: #ECF0F1;
+    height: 50px;
+}
+
+/* 서브 메뉴 항목 내부 링크 스타일 */
+.sub-menu li a {
+    line-height: 50px;
+    color: #1C1C1C;
+}
+/* 유틸리티 메뉴 (로그인, 회원가입 등) 스타일 */
+.util-menu {
+    margin-right: 5%;
+    line-height: 100px;
+}
+
+/* 유틸리티 메뉴 리스트 정렬 */
+.util-menu ul {
+    display: flex;
+}   
+
+/* 유틸리티 메뉴 항목 간격 조정 */
+.util-menu li {
+    margin-right: 10px;
+    font-size: 13px;
+}
+.util-menu li a:hover {
+    text-decoration: underline;
+}
+.introduce {
+    position: relative;
+    top: 100px;
+    width: 70%;
+}
+.introtitle {
+    line-height: 850px;
+    text-align: center;
+    width: 100%;
+    height: 850px;
+}
+.introduce img {    
+    margin-top: 20px;                                        
+    width: 100%;
+    height: 300px;
+}
+.intro1 {
+    width: 100%;
+    height: 400px;
+}
+.intro2 {
+    margin-top: 200px;
+    width: 100%;
+    height: 400px;
+}
+.intro3 {
+    margin-top: 200px;
+    width: 100%;
+    height: 400px;
+}
+.intro4 {
+    margin-top: 200px;
+    width: 100%;
+    height: 400px;
+}
+.footer {
+    position: relative;
+    top: 200px;
+    width: 100%;
+    height: 500px;
+    background-color: #000;
+    color: #ECF0F1;
+}
+.footercon {
+    position: relative;
+    top: 150px;
+    width: 70%;
+    display: flex;
+}
+.footer1-1 {
+    margin: 0;
+    width: 70%;
+    height: 350px;
+}
+.footerlink {
+    display: inline-block;
+    color: #35bcf2;
+}
+.footerlink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.footer1-2 {
+    margin: 0;
+    width: 30%;
+}
+.sns {
+    margin-top: 10px;
+}
+.sns img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    filter: grayscale(100%);
+}
+.sns img:hover {
+    filter: grayscale(0%);
+    cursor: pointer;
+}

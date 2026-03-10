@@ -1,0 +1,179 @@
+body {
+    margin:0;
+    font-family:맑은 고딕;
+}
+
+header {
+    width:100%;
+    height:80px;
+    background:#2c3e50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+    box-sizing:border-box;
+}
+
+.logo a {
+    text-decoration:none;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span {
+    color:#f1c40f;
+}
+
+nav ul {
+    list-style:none;
+    display:flex;
+    margin:0;
+    padding:0;
+    height: 80px;
+}
+
+nav ul li {
+    margin:0 20px;
+    position:relative;
+    height: 80px;
+}
+
+nav ul li a {
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    line-height: 80px;
+}
+
+nav ul li:hover>a {
+    color:#f1c40f;
+}
+
+.submenu {
+    position:absolute;
+    top: 60px;
+    left: 0;
+    background: white;
+    display: none;
+    flex-direction: column;
+    min-width: 140px;
+    border-radius:4px;
+    overflow:hidden;
+    animation:menu 0.3s;
+}
+
+.submenu a {
+    padding:10px;
+    color:#2c3e50;
+    text-decoration:none;
+    height: 30px;
+    line-height: 30px;
+}
+
+.submenu a:hover {
+    background:#f1c40f;
+}
+
+nav ul li:hover .submenu {
+    display:flex;
+}
+
+.plus {
+    margin-left:5px;
+    transition:0.3s;
+}
+
+nav ul li:hover .plus {
+    transform:rotate(180deg);
+}
+
+.user a {
+    text-decoration:none;
+    background:white;
+    color:#2c3e50;
+    padding:6px 14px;
+    border-radius:4px;
+    margin-left:10px;
+}
+
+.user a:hover {
+    background:#f1c40f;
+    color:black;
+}
+
+.modal {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:fade 0.5s;
+    z-index: 999;
+}
+
+.modal-box {
+    background:white;
+    width:420px;
+    padding:25px;
+    border-radius:6px;
+    text-align:center;
+    animation:pop 0.4s;
+}
+
+.modal-box h2 {
+    margin-top:0;
+    color:#2c3e50;
+}
+
+.modal-box img {
+    width:100%;
+    margin:15px 0;
+}
+
+.close {
+    background:#2c3e50;
+    color:white;
+    border:none;
+    padding:8px 20px;
+    cursor:pointer;
+}
+
+.close:hover {
+    background:#f1c40f;
+    color:black;
+}
+
+@keyframes fade {
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+@keyframes pop {
+    from {
+        transform:scale(0.8);
+    }
+    to {
+        transform:scale(1);
+    }
+}
+
+@keyframes menu {
+    from {
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
