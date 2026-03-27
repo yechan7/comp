@@ -295,9 +295,9 @@ nav ul li:hover .submenu {
     text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-.s1 { animation: slide1 9s infinite; }
-.s2 { animation: slide2 9s infinite; }
-.s3 { animation: slide3 9s infinite; }
+.slide1 { animation: slide1 9s infinite; }
+.slide2 { animation: slide2 9s infinite; }
+.slide3 { animation: slide3 9s infinite; }
 
 @keyframes slide1{
     0% {
@@ -637,84 +637,169 @@ nav ul li:hover .submenu {
     font-size:14px;
 }
 
-.event{
+.event {
     font-size:11px;
     background:#f1c40f;
     margin-top:3px;
     padding:2px;
 }
 
-.book-area {
-    width: 1000px;
-    margin: 80px auto;
-    text-align: center;
+.books{
+width:1100px;
+margin:120px auto;
 }
 
-.book-area input {
-    display: none;
+.books input{
+display:none;
 }
 
-.book-title {
-    border-left: 5px solid #f1c40f;
-    padding-left: 10px;
-    text-align: left;
-    margin-bottom: 30px;
+.top-area{
+display:flex;
+gap:80px;
+align-items:center;
+margin-bottom:40px;
 }
 
-.book-slider {
-    overflow: hidden;
+.big-book{
+    position:relative;
+    height:340px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.books {
-    display: flex;
-    width: 700%;
-    transition: 0.5s;
+.big-book img{
+    box-shadow:0 15px 30px rgba(0,0,0,0.25);
+    border-radius:4px;
+    width:220px;
+    height:320px;
+    object-fit:cover;
 }
 
-.book {
-    width: calc(100% / 7);
-    padding: 10px;
-    box-sizing: border-box;
+.circle{
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:#e6e6e6;
+    position:absolute;
+    left:-60px;
+    top:20px;
+    z-index:-1;
 }
 
-.book img{
-    width:180px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+.book{
+display:none;
 }
 
-.book h4{
-    font-size:16px;
-    margin-top:10px;
+.book-info .info{
+display:none;
 }
 
-.book p {
-    font-size: 12px;
-    margin: 3px 0;
-    color: #555;
+.slider{
+display:flex;
+gap:40px;
+justify-content:center;
+align-items:flex-end;
 }
 
-.book span {
-    font-size: 12px;
-    color: gray;
+.slider img{
+    opacity:0.4;
+    width:100%;
+    height:100%;
+    transition:0.3s;
+    object-fit:cover;
+    cursor:pointer;
 }
 
-.arrow div {
-    display: none;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+.slider label{
+    width:110px;
+    height:160px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.arrow label {
-    font-size: 35px;
-    color: #2c3e50;
-    cursor: pointer;
+.slider img:hover{
+    opacity:1;
+    transform:scale(1.1);
 }
 
-.count {
-    font-size: 16px;
-    font-weight: bold;
+.control{
+    position:relative;
+    width:220px;
+    margin:40px auto;
+    height:40px;
+}
+
+.state{
+    position:absolute;
+    width:100%;
+    display:none;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.control span{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.control label{
+    font-size:30px;
+    cursor:pointer;
+}
+
+#s1:checked ~ .control .s1{display:flex;}
+#s2:checked ~ .control .s2{display:flex;}
+#s3:checked ~ .control .s3{display:flex;}
+#s4:checked ~ .control .s4{display:flex;}
+#s5:checked ~ .control .s5{display:flex;}
+#s6:checked ~ .control .s6{display:flex;}
+#s7:checked ~ .control .s7{display:flex;}
+
+#s1:checked ~ .top-area .b1{display:block;}
+#s2:checked ~ .top-area .b2{display:block;}
+#s3:checked ~ .top-area .b3{display:block;}
+#s4:checked ~ .top-area .b4{display:block;}
+#s5:checked ~ .top-area .b5{display:block;}
+#s6:checked ~ .top-area .b6{display:block;}
+#s7:checked ~ .top-area .b7{display:block;}
+
+#s1:checked ~ .top-area .i1{display:block;}
+#s2:checked ~ .top-area .i2{display:block;}
+#s3:checked ~ .top-area .i3{display:block;}
+#s4:checked ~ .top-area .i4{display:block;}
+#s5:checked ~ .top-area .i5{display:block;}
+#s6:checked ~ .top-area .i6{display:block;}
+#s7:checked ~ .top-area .i7{display:block;}
+
+#s1:checked ~ .slider label[for="s1"] img{
+    opacity:1;
+    transform:scale(1.1);
+}
+#s2:checked ~ .slider label[for="s2"] img{
+    opacity:1;
+    transform:scale(1.1);
+}
+#s3:checked ~ .slider label[for="s3"] img{
+    opacity:1;
+    transform:scale(1.1);
+}
+#s4:checked ~ .slider label[for="s4"] img{
+    opacity:1;
+    transform:scale(1.1);
+}
+#s5:checked ~ .slider label[for="s5"] img{
+    opacity:1;
+    transform:scale(1.1);
+}
+#s6:checked ~ .slider label[for="s6"] img{
+    opacity:1;
+    transform:scale(1.1);
+}
+#s7:checked ~ .slider label[for="s7"] img{
+    opacity:1;
+    transform:scale(1.1);
 }
 
 .notice,
@@ -724,19 +809,3 @@ nav ul li:hover .submenu {
 .book-area {
     margin-top: 120px;
 }
-
-#b1:checked ~ .arrow .arrow1 {display:flex;}
-#b2:checked ~ .arrow .arrow2 {display:flex;}
-#b3:checked ~ .arrow .arrow3 {display:flex;}
-#b4:checked ~ .arrow .arrow4 {display:flex;}
-#b5:checked ~ .arrow .arrow5 {display:flex;}
-#b6:checked ~ .arrow .arrow6 {display:flex;}
-#b7:checked ~ .arrow .arrow7 {display:flex;}
-
-#b1:checked ~ .book-slider .books {transform: translateX(0);}
-#b2:checked ~ .book-slider .books {transform: translateX(-14.285%);}
-#b3:checked ~ .book-slider .books {transform: translateX(-28.57%);}
-#b4:checked ~ .book-slider .books {transform: translateX(-42.85%);}
-#b5:checked ~ .book-slider .books {transform: translateX(-57.14%);}
-#b6:checked ~ .book-slider .books {transform: translateX(-71.42%);}
-#b7:checked ~ .book-slider .books {transform: translateX(-85.71%);}
