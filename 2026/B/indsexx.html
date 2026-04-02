@@ -31,9 +31,18 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">도서관소개</a></li>
                 <li>
-                    <a href="#">도서자료실 <span class="plus">+</span></a>
+                    <input type="checkbox" class="nav-toggle" id="nav0">
+                    <a href="#">도서관소개 <label for="nav0" class="plus">+</label></a>
+                    <div class="submenu">
+                        <a href="#">도서관 안내</a>
+                        <a href="#">이용 안내</a>
+                        <a href="#">오시는 길</a>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" class="nav-toggle" id="nav1">
+                    <a href="#">도서자료실 <label for="nav1" class="plus">+</label></a>
                     <div class="submenu">
                         <a href="#">추천도서</a>
                         <a href="#">신간도서</a>
@@ -41,21 +50,26 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#">회원서비스 <span class="plus">+</span></a>
+                    <input type="checkbox" class="nav-toggle" id="nav2">
+                    <a href="#">회원서비스 <label for="nav2" class="plus">+</label></a>
                     <div class="submenu">
                         <a href="#">회원정보</a>
                         <a href="#">대출조회</a>
                         <a href="#">도서예약</a>
                     </div>
                 </li>
-                <li><a href="#">도서검색</a></li>
-                <li><a href="#">도서관리자</a></li>
+                <li>
+                    <a href="#">도서검색</a>
+                </li>
+                <li>
+                    <a href="#">도서관리자</a>
+                </li>
             </ul>
         </nav>
         <div class="user">
             <input type="checkbox" id="lmodal">
             <label for="lmodal" class="login">로그인</label>
-            <a href="#">회원가입</a>
+            <a class="sign" href="#">회원가입</a>
             <div class="login-modal">
                 <div class="lmodal-box">
                     <label class="x" for="lmodal">×</label>
@@ -146,12 +160,12 @@
     <div class="quick">
         <h2 class="quick-title">자주찾는 메뉴</h2>
         <div class="quick-menu">
-            <div class="q-item"><div class="icon">📖</div><p>도서대출</p></div>
-            <div class="q-item"><div class="icon">🔄</div><p>도서반납</p></div>
-            <div class="q-item"><div class="icon">💺</div><p>좌석예약</p></div>
-            <div class="q-item"><div class="icon">📚</div><p>희망도서신청</p></div>
-            <div class="q-item"><div class="icon">🤖</div><p>AI추천도서</p></div>
-            <div class="q-item"><div class="icon">💻</div><p>전자도서관</p></div>
+            <div class="q-item"><div class="icon"><i class="fa-solid fa-book"></i></div><p>도서대출</p></div>
+            <div class="q-item"><div class="icon"><i class="fa-solid fa-rotate-left"></i></div><p>도서반납</p></div>
+            <div class="q-item"><div class="icon"><i class="fa-solid fa-chair"></i></div><p>좌석예약</p></div>
+            <div class="q-item"><div class="icon"><i class="fa-solid fa-book-open"></i></div><p>희망도서신청</p></div>
+            <div class="q-item"><div class="icon"><i class="fa-solid fa-robot"></i></div><p>AI추천도서</p></div>
+            <div class="q-item"><div class="icon"><i class="fa-solid fa-laptop"></i></div><p>전자도서관</p></div>
         </div>
     </div>
 
@@ -225,7 +239,6 @@
 
     <!-- BOOKS (추천도서) -->
     <div class="books">
-        <h2 class="notice-title">추천도서</h2>
         <input type="radio" name="slide" id="s1" checked>
         <input type="radio" name="slide" id="s2">
         <input type="radio" name="slide" id="s3">
@@ -233,53 +246,168 @@
         <input type="radio" name="slide" id="s5">
         <input type="radio" name="slide" id="s6">
         <input type="radio" name="slide" id="s7">
-
+ 
+        <h2 class="notice-title">추천도서</h2>
+ 
+        <!-- 슬라이드 영역 -->
         <div class="top-area">
-            <div class="big-book">
-                <div class="circle"></div>
-                <div class="book b1"><img src="B-Module/추천도서/추천도서1.jpg"></div>
-                <div class="book b2"><img src="B-Module/추천도서/추천도서2.jpg"></div>
-                <div class="book b3"><img src="B-Module/추천도서/추천도서3.jpg"></div>
-                <div class="book b4"><img src="B-Module/추천도서/추천도서4.jpg"></div>
-                <div class="book b5"><img src="B-Module/추천도서/추천도서5.jpg"></div>
-                <div class="book b6"><img src="B-Module/추천도서/추천도서6.jpg"></div>
-                <div class="book b7"><img src="B-Module/추천도서/추천도서7.jpg"></div>
-            </div>
-            <div class="book-info">
-                <div class="info i1"><h3>나에게 나다움을 주기로 했다 : 나다움을 찾아가는 다섯 가지 마음 습관</h3><p class="author">지은이 : 고정욱</p></div>
-                <div class="info i2"><h3>여름이 반짝</h3><p class="author">지은이 : 김수빈</p></div>
-                <div class="info i3"><h3>사랑 한 꼬집을 넣으면</h3><p class="author">지은이 : 배리 팀스</p></div>
-                <div class="info i4"><h3>정말 정말 소리 지르고 싶어!</h3><p class="author">지은이 : 사이먼 필립</p></div>
-                <div class="info i5"><h3>힐빌리의 노래 : 위기의 가정과 문화에 대한 회고</h3><p class="author">지은이 : J.D 밴스</p></div>
-                <div class="info i6"><h3>(허영만의) 커피 한잔 할까요?</h3><p class="author">지은이 : 허영만</p></div>
-                <div class="info i7"><h3>두더지의 여름: 김상근 그림책</h3><p class="author">지은이 : 김상근</p></div>
+            <div class="card-track">
+ 
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        <img class="book-cover" src="B-Module/추천도서/추천도서1.jpg">
+                        <div class="cover-fallback" style="display:none">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-num">No. 01</span>
+                        <p class="card-title">나에게 나다움을 주기로 했다<br>나다움을 찾아가는 다섯 가지 마음 습관</p>
+                        <p class="card-author">지은이 : 고정욱</p>
+                        <span class="card-badge">자기계발 · 에세이</span>
+                    </div>
+                </div>
+ 
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        <img class="book-cover" src="B-Module/추천도서/추천도서2.jpg">
+                        <div class="cover-fallback" style="display:none">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-num">No. 02</span>
+                        <p class="card-title">여름이 반짝</p>
+                        <p class="card-author">지은이 : 김수빈</p>
+                        <span class="card-badge">소설 · 청소년</span>
+                    </div>
+                </div>
+ 
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        <img class="book-cover" src="B-Module/추천도서/추천도서3.jpg">
+                        <div class="cover-fallback" style="display:none">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-num">No. 03</span>
+                        <p class="card-title">사랑 한 꼬집을 넣으면</p>
+                        <p class="card-author">지은이 : 배리 팀스</p>
+                        <span class="card-badge">그림책 · 가족</span>
+                    </div>
+                </div>
+ 
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        <img class="book-cover" src="B-Module/추천도서/추천도서4.jpg">
+                        <div class="cover-fallback" style="display:none">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-num">No. 04</span>
+                        <p class="card-title">정말 정말 소리 지르고 싶어!</p>
+                        <p class="card-author">지은이 : 사이먼 필립</p>
+                        <span class="card-badge">그림책 · 감정표현</span>
+                    </div>
+                </div>
+ 
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        <img class="book-cover" src="B-Module/추천도서/추천도서5.jpg">
+                        <div class="cover-fallback" style="display:none">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-num">No. 05</span>
+                        <p class="card-title">힐빌리의 노래<br>위기의 가정과 문화에 대한 회고</p>
+                        <p class="card-author">지은이 : J.D 밴스</p>
+                        <span class="card-badge">논픽션 · 사회</span>
+                    </div>
+                </div>
+ 
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        <img class="book-cover" src="B-Module/추천도서/추천도서6.jpg">
+                        <div class="cover-fallback" style="display:none">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-num">No. 06</span>
+                        <p class="card-title">(허영만의) 커피 한잔 할까요?</p>
+                        <p class="card-author">지은이 : 허영만</p>
+                        <span class="card-badge">만화 · 문화</span>
+                    </div>
+                </div>
+ 
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        <img class="book-cover" src="B-Module/추천도서/추천도서7.jpg">
+                        <div class="cover-fallback" style="display:none">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-num">No. 07</span>
+                        <p class="card-title">두더지의 여름: 김상근 그림책</p>
+                        <p class="card-author">지은이 : 김상근</p>
+                        <span class="card-badge">그림책 · 계절</span>
+                    </div>
+                </div>
+ 
             </div>
         </div>
-
-        <div class="slider">
-            <label for="s1"><img src="B-Module/추천도서/추천도서1.jpg"></label>
-            <label for="s2"><img src="B-Module/추천도서/추천도서2.jpg"></label>
-            <label for="s3"><img src="B-Module/추천도서/추천도서3.jpg"></label>
-            <label for="s4"><img src="B-Module/추천도서/추천도서4.jpg"></label>
-            <label for="s5"><img src="B-Module/추천도서/추천도서5.jpg"></label>
-            <label for="s6"><img src="B-Module/추천도서/추천도서6.jpg"></label>
-            <label for="s7"><img src="B-Module/추천도서/추천도서7.jpg"></label>
-        </div>
-
+ 
+        <!-- 이전 / 현재번호·총개수 / 다음 -->
         <div class="control">
-            <div class="state s1"><label for="s7">‹</label><span>1 / 7</span><label for="s2">›</label></div>
-            <div class="state s2"><label for="s1">‹</label><span>2 / 7</span><label for="s3">›</label></div>
-            <div class="state s3"><label for="s2">‹</label><span>3 / 7</span><label for="s4">›</label></div>
-            <div class="state s4"><label for="s3">‹</label><span>4 / 7</span><label for="s5">›</label></div>
-            <div class="state s5"><label for="s4">‹</label><span>5 / 7</span><label for="s6">›</label></div>
-            <div class="state s6"><label for="s5">‹</label><span>6 / 7</span><label for="s7">›</label></div>
-            <div class="state s7"><label for="s6">‹</label><span>7 / 7</span><label for="s1">›</label></div>
+            <div class="state s1">
+                <label for="s7"><</label>
+                <span><b>1</b> / 7</span>
+                <label for="s2">&#8250;</label>
+            </div>
+            <div class="state s2">
+                <label for="s1"><</label>
+                <span><b>2</b> / 7</span>
+                <label for="s3">></label>
+            </div>
+            <div class="state s3">
+                <label for="s2"><</label>
+                <span><b>3</b> / 7</span>
+                <label for="s4">></label>
+            </div>
+            <div class="state s4">
+                <label for="s3"><</label>
+                <span><b>4</b> / 7</span>
+                <label for="s5">></label>
+            </div>
+            <div class="state s5">
+                <label for="s4"><</label>
+                <span><b>5</b> / 7</span>
+                <label for="s6">></label>
+            </div>
+            <div class="state s6">
+                <label for="s5"><</label>
+                <span><b>6</b> / 7</span>
+                <label for="s7">></label>
+            </div>
+            <div class="state s7">
+                <label for="s6"><</label>
+                <span><b>7</b> / 7</span>
+                <label for="s1">></label>
+            </div>
         </div>
-
-        <footer>
-            © 2026 스킬스북도서관. All rights reserved.
-        </footer>
     </div>
-
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p class="footer-logo"><span>스킬스북</span>도서관</p>
+                <p class="footer-addr">
+                    인천시 부평구 무네미로 448번길 77<br>
+                    한국산업인력공단 글로벌숙련기술진흥원
+                </p>
+            </div>
+        <div class="footer-divider"></div>
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <span class="footer-contact-label">문의전화 안내</span>
+                    <span class="footer-contact-value">1644-8000</span>
+                    <span class="footer-contact-sub">운영시간(평일) 09:00 ~ 18:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <span>COPYRIGHTⓒ 2016 HRDKOREA. All rights reserved.</span>
+            <span>한국산업인력공단 글로벌숙련기술진흥원</span>
+        </div>
+    </footer>
 </body>
 </html>
