@@ -7,7 +7,6 @@ html { scroll-behavior: smooth; }
     --accent:   #E8A020;
     --accent2:  #F5C842;
     --light:    #F7F5F0;
-    --lighter:  #FDFCFA;
     --border:   #E2DDD6;
     --text:     #1B2A3B;
     --text2:    #5A5A6A;
@@ -107,6 +106,7 @@ header {
 .logo a::before { content: '📚'; font-size: 20px; }
 .logo span { color: var(--accent2); }
 
+/* ── NAV ── */
 nav { height: 72px; }
 nav ul { list-style: none; display: flex; margin: 0; padding: 0; height: 72px; align-items: center; }
 nav ul li { margin: 0 3px; position: relative; }
@@ -119,13 +119,22 @@ nav ul li > a {
     transition: background 0.2s, color 0.2s; white-space: nowrap;
     cursor: pointer; gap: 4px;
 }
-/* 메인메뉴 호버 효과 */
 nav ul li > a:hover { color: var(--accent2); background: rgba(255,255,255,0.07); }
  
-/* ── [+] 아이콘 (서브메뉴 있는 항목만) ── */
-/* checkbox 숨김 */
+/* 서브메뉴 있는 메뉴 — label이 전체 클릭 영역 */
+label.nav-label {
+    text-decoration: none; color: rgba(255,255,255,0.82);
+    font-size: 14px; padding: 8px 15px; border-radius: 8px;
+    display: flex; align-items: center; line-height: 56px;
+    transition: background 0.2s, color 0.2s; white-space: nowrap;
+    cursor: pointer; gap: 6px; user-select: none;
+}
+label.nav-label:hover { color: var(--accent2); background: rgba(255,255,255,0.07); }
+.nav-toggle:checked ~ label.nav-label { color: var(--accent2); background: rgba(255,255,255,0.07); }
+ 
+/* ── [+] 아이콘 ── */
 .nav-toggle { display: none; }
-
+ 
 .plus {
     display: inline-flex;
     align-items: center;
@@ -133,40 +142,69 @@ nav ul li > a:hover { color: var(--accent2); background: rgba(255,255,255,0.07);
     width: 18px; height: 18px;
     border: 1.5px solid rgba(255,255,255,0.35);
     border-radius: 4px;
-    font-size: 13px; font-style: normal;
-    line-height: 1; color: rgba(255,255,255,0.7);
-    transition: transform 0.3s ease, background 0.2s, border-color 0.2s;
     flex-shrink: 0;
-    font-weight: 400;
     margin-left: 2px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.35s ease, background 0.25s, border-color 0.25s;
 }
  
-/* 클릭(checkbox :checked) 시 + → - (45도 회전) */
-.nav-toggle:checked ~ a .plus {
-    transform: rotate(45deg);
+/* 가로선만 - 180도 돌아도 - 그대로 */
+.plus::before {
+    content: '';
+    position: absolute;
+    width: 9px; height: 1.5px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 1px;
+    transition: background 0.25s;
+}
+ 
+/* 세로선 - 기본엔 보이고 checked시 사라짐 */
+.plus::after {
+    content: '';
+    position: absolute;
+    width: 1.5px; height: 9px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 1px;
+    transition: opacity 0.3s ease, background 0.25s;
+}
+ 
+.nav-toggle:checked ~ label.nav-label .plus::after {
+    opacity: 0;
+}
+ 
+/* 클릭 시: plus 전체 180도 회전 → + 가 - 처럼 보임 */
+.nav-toggle:checked ~ label.nav-label .plus {
+    transform: rotate(180deg);
     background: rgba(255,255,255,0.12);
     border-color: rgba(255,255,255,0.6);
-    color: var(--accent2);
 }
+.nav-toggle:checked ~ label.nav-label .plus::before { background: var(--accent2); }
+.nav-toggle:checked ~ label.nav-label .plus::after { background: var(--accent2); }
  
 /* ── 서브메뉴 ── */
 .submenu {
     position: absolute; top: 60px; left: 0;
     background: var(--white);
-    display: none;              /* 기본 숨김 */
+    display: none;
     flex-direction: column;
     min-width: 148px;
     border-radius: 10px; overflow: hidden;
     box-shadow: 0 8px 32px rgba(10,15,25,0.16);
     z-index: 100;
     border: 1px solid var(--border);
-    animation: menuDrop 0.22s ease;
+    animation: menuDrop 0.25s ease;
 }
  
-/* checkbox 체크 시 서브메뉴 표시 */
 .nav-toggle:checked ~ .submenu { display: flex; }
  
-/* 서브메뉴 항목 호버 하이라이트 */
+/* 마우스 li 이탈 시 서브메뉴 닫힘 + 아이콘 복귀 */
+nav ul li:not(:hover) .nav-toggle:checked ~ .submenu { display: none; }
+nav ul li:not(:hover) .nav-toggle:checked ~ label.nav-label .plus { transform: rotate(0deg); background: none; border-color: rgba(255,255,255,0.35); }
+nav ul li:not(:hover) .nav-toggle:checked ~ label.nav-label .plus::before { background: rgba(255,255,255,0.7); }
+nav ul li:not(:hover) .nav-toggle:checked ~ label.nav-label .plus::after { opacity: 1; background: rgba(255,255,255,0.7); }
+ 
+/* 서브메뉴 항목 */
 .submenu a {
     padding: 11px 18px;
     color: var(--text) !important; font-size: 13.5px; line-height: 1.4;
@@ -179,11 +217,6 @@ nav ul li > a:hover { color: var(--accent2); background: rgba(255,255,255,0.07);
     color: var(--primary) !important;
     cursor: pointer;
 }
- 
-/* 마우스가 서브메뉴를 벗어나면 닫힘:
-   checkbox가 체크된 상태에서 li 호버가 끝나면 사라지도록
-   li:hover 조건을 추가해 유지 */
-nav ul li:not(:hover) .nav-toggle:checked ~ .submenu { display: none; }
 
 .user { display: flex; align-items: center; gap: 8px; }
 .user .login, .user a {
